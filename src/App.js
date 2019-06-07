@@ -1,13 +1,14 @@
 import React from 'react';
-import './App.css';
-import LoginPage from './components/accountpage/loginpage/LoginPage';
+import { isMobile } from "react-device-detect";
+import LoginPage from './components/web-views/accountpage/loginpage/LoginPage';
+import MobileLoginPage from './components/mobile-views/accountpage/loginpage/LoginPage';
 
 function App() {
-  return (
-    <div >
-      <LoginPage />
-    </div>
-  );
+  if (isMobile) {
+    return <MobileLoginPage />;
+  }else{
+    return <LoginPage />;
+  }
 }
 
 export default App;
